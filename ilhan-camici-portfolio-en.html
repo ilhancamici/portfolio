@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>İlhan Çamiçi — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;900&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F4F5FB; --surface:#FFFFFF; --ink:#0E1030; --muted:#5B5F80; --line:#D5D8EA;
+  --cobalt:#2B3BFF; --lime:#D6FF3D; --on-cobalt:#F4F5FB;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0D0F26; --surface:#161A3D; --ink:#EEF0FF; --muted:#9EA3CC; --line:#2A2F5E; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{--bg:#0D0F26; --surface:#161A3D; --ink:#EEF0FF; --muted:#9EA3CC; --line:#2A2F5E; color-scheme:dark}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Instrument Sans",system-ui,sans-serif;font-size:17px;line-height:1.55}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--lime);outline-offset:3px;box-shadow:0 0 0 6px var(--cobalt)}
+
+/* Hero */
+.hero{background:var(--cobalt);color:var(--on-cobalt);position:relative;overflow:hidden;padding:clamp(28px,4vw,48px) clamp(20px,5vw,64px) 0}
+.topbar{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-weight:600;font-size:15px}
+.topbar nav{display:flex;gap:clamp(14px,3vw,32px);flex-wrap:wrap}
+.topbar a{text-decoration:none;border-bottom:2px solid transparent}
+.topbar a:hover{border-bottom-color:var(--lime)}
+.name{font-family:"Unbounded",system-ui,sans-serif;font-weight:900;text-transform:none;letter-spacing:-.045em;line-height:.9;margin:clamp(48px,9vw,120px) 0 0;font-size:clamp(56px,15.5vw,232px)}
+.name span{display:block}
+.name .l2{color:var(--lime);margin-left:clamp(0px,6vw,96px)}
+.intro{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px 64px;margin:clamp(32px,5vw,64px) 0 clamp(40px,6vw,80px);max-width:1200px}
+.intro .role{font-family:"Unbounded",system-ui,sans-serif;font-weight:500;font-size:clamp(17px,2vw,22px);line-height:1.3;margin:0}
+.intro p{margin:0;font-size:18px;max-width:30em}
+
+.ticker{background:var(--lime);color:#0E1030;margin:0 calc(-1 * clamp(20px,5vw,64px));overflow:hidden;white-space:nowrap;border-top:2px solid #0E1030}
+.ticker-track{display:inline-flex;animation:slide 28s linear infinite}
+.ticker span{font-family:"Unbounded",system-ui,sans-serif;font-weight:700;font-size:clamp(15px,1.8vw,20px);padding:14px 0;display:inline-flex;align-items:center}
+.ticker span::after{content:"";width:10px;height:10px;background:#0E1030;margin:0 28px;transform:rotate(45deg)}
+@keyframes slide{to{transform:translateX(-50%)}}
+
+/* Sections */
+main{max-width:1280px;margin:0 auto;padding:0 clamp(20px,5vw,64px)}
+section{padding:clamp(56px,8vw,112px) 0 0}
+.sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap}
+.sec-head h2{font-family:"Unbounded",system-ui,sans-serif;font-weight:700;font-size:clamp(30px,5.2vw,68px);line-height:1;letter-spacing:-.035em;margin:0;max-width:12em}
+.count{font-family:"Unbounded",system-ui,sans-serif;font-weight:900;font-size:clamp(48px,8vw,104px);line-height:.8;color:var(--cobalt);letter-spacing:-.05em}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .count{color:var(--lime)}}
+:root[data-theme="dark"] .count{color:var(--lime)}
+.sec-note{max-width:38em;color:var(--muted);margin:16px 0 0}
+
+.group-label{font-family:"Unbounded",system-ui,sans-serif;font-weight:500;font-size:14px;margin:36px 0 0;padding:6px 14px;display:inline-block;border:2px solid var(--ink);border-radius:99px}
+.list{list-style:none;margin:20px 0 0;padding:0;border-top:2px solid var(--ink)}
+.item{border-bottom:2px solid var(--ink)}
+.item a{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px 24px;align-items:center;padding:clamp(20px,2.6vw,32px) clamp(8px,1.5vw,20px);text-decoration:none;transition:background .18s,color .18s}
+.item h3{font-family:"Unbounded",system-ui,sans-serif;font-weight:500;font-size:clamp(19px,2.6vw,32px);line-height:1.15;letter-spacing:-.025em;margin:0}
+.item p{margin:8px 0 0;color:var(--muted);max-width:40em;transition:color .18s}
+.tags{display:flex;align-items:center;gap:12px;font-size:14px;font-weight:600;color:var(--muted);margin-top:10px;flex-wrap:wrap;transition:color .18s}
+.lang{background:var(--ink);color:var(--bg);padding:1px 9px;border-radius:4px;font-weight:600;transition:background .18s,color .18s}
+.go{width:clamp(44px,5vw,64px);height:clamp(44px,5vw,64px);border-radius:50%;border:2px solid currentColor;display:grid;place-items:center;transition:transform .25s,background .18s,border-color .18s}
+.go svg{width:45%;height:45%}
+.item a:hover{background:var(--cobalt);color:var(--on-cobalt)}
+.item a:hover p,.item a:hover .tags{color:#C9CEFF}
+.item a:hover .lang{background:var(--lime);color:#0E1030}
+.item a:hover .go{background:var(--lime);border-color:var(--lime);color:#0E1030;transform:rotate(45deg)}
+
+footer{max-width:1280px;margin:clamp(72px,10vw,140px) auto 0;padding:0 clamp(20px,5vw,64px) 120px}
+.foot{background:var(--cobalt);color:var(--on-cobalt);border-radius:28px;padding:clamp(28px,5vw,64px);display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap}
+.foot p{font-family:"Unbounded",system-ui,sans-serif;font-weight:700;font-size:clamp(22px,3.6vw,48px);line-height:1.05;letter-spacing:-.03em;margin:0;max-width:11em}
+.foot small{font-size:15px;color:#C9CEFF}
+
+.theme{position:fixed;right:max(16px,env(safe-area-inset-right,0px));bottom:max(16px,env(safe-area-inset-bottom,0px));font-family:"Instrument Sans",system-ui,sans-serif;font-size:14px;font-weight:600;background:var(--lime);color:#0E1030;border:2px solid #0E1030;border-radius:99px;padding:9px 18px;cursor:pointer}
+
+@media (max-width:760px){
+  .intro{grid-template-columns:1fr}
+  .item a{grid-template-columns:minmax(0,1fr) auto}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}.ticker-track{animation:none}.item a,.go{transition:none}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="topbar">
+    <strong>İlhan Çamiçi</strong>
+    <nav aria-label="Sections">
+      <a href="#whitepapers">Whitepapers</a>
+      <a href="#b2b-blog">B2B blog</a>
+      <a href="#tr-blog">Turkish blog</a>
+      <a href="#landing">Landing pages</a>
+    </nav>
+  </div>
+
+  <h1 class="name"><span>İlhan</span><span class="l2">Çamiçi</span></h1>
+
+  <div class="intro">
+    <p class="role">Marketing specialist at Meditopia</p>
+    <p>My core focus is inbound demand generation for B2B. I work across SEO, PR, thought leadership, LinkedIn, HubSpot, event marketing and CRM. This is a selection of the content I have written and built for B2B and B2C audiences.</p>
+  </div>
+
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track">
+      <span>SEO</span><span>PR</span><span>Thought leadership</span><span>LinkedIn</span><span>HubSpot</span><span>Event marketing</span><span>CRM</span>
+      <span>SEO</span><span>PR</span><span>Thought leadership</span><span>LinkedIn</span><span>HubSpot</span><span>Event marketing</span><span>CRM</span>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<section id="whitepapers" aria-labelledby="h-wp">
+  <div class="sec-head">
+    <h2 id="h-wp">Onepagers &amp; whitepapers</h2>
+    <div class="count" aria-label="5 items">5</div>
+  </div>
+  <p class="sec-note">Short sales sheets and in-depth guides, in Turkish and English.</p>
+
+  <div class="group-label">Turkish</div>
+  <ul class="list">
+    <li class="item"><a href="https://drive.google.com/file/d/1FVO6h4XDuDRQeQOM-OW8KOjWQzNpCmmR/view?usp=drive_link" target="_blank" rel="noopener">
+      <div><h3>Turkish document 1</h3><div class="tags"><span class="lang">TR</span><span>Google Drive</span></div></div>
+      <span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a></li>
+    <li class="item"><a href="https://drive.google.com/file/d/1BYLYg1UeoLMf2VZLmjUBVAbssrUn-k4X/view?usp=sharing" target="_blank" rel="noopener">
+      <div><h3>Turkish document 2</h3><div class="tags"><span class="lang">TR</span><span>Google Drive</span></div></div>
+      <span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a></li>
+    <li class="item"><a href="https://drive.google.com/file/d/1yDbuLuZkCFDPZfxUfEWiH1IAUFNUDf2y/view?usp=sharing" target="_blank" rel="noopener">
+      <div><h3>Turkish document 3</h3><div class="tags"><span class="lang">TR</span><span>Google Drive</span></div></div>
+      <span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a></li>
+  </ul>
+
+  <div class="group-label">English</div>
+  <ul class="list">
+    <li class="item"><a href="https://drive.google.com/file/d/1wys1lq7mYca-FT1jGeumNBB4nK3xQ6VO/view?usp=sharing" target="_blank" rel="noopener">
+      <div><h3>English document 1</h3><div class="tags"><span class="lang">EN</span><span>Google Drive</span></div></div>
+      <span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a></li>
+    <li class="item"><a href="https://drive.google.com/file/d/1hjdxSSt5makQwhFPLWE-FqtTN2JDcx2_/view?usp=sharing" target="_blank" rel="noopener">
+      <div><h3>English document 2</h3><div class="tags"><span class="lang">EN</span><span>Google Drive</span></div></div>
+      <span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a></li>
+  </ul>
+</section>
+
+<section id="b2b-blog" aria-labelledby="h-b2b">
+  <div class="sec-head">
+    <h2 id="h-b2b">B2B blog posts</h2>
+    <div class="count" aria-label="2 items">2</div>
+  </div>
+  <p class="sec-note">English articles for the Doktar blog on digital transformation in agriculture and measuring social impact.</p>
+  <ul class="list">
+    <li class="item"><a href="https://www.doktar.com/resources/blog/harvesting-the-digital-acre-doktar%E2%80%99s-approach" target="_blank" rel="noopener">
+      <div><h3>Harvesting the Digital Acre: Doktar’s Approach</h3>
+      <p>Explains the “digital acre” concept and Doktar’s four-phase roadmap for digital transformation in contract farming.</p>
+      <div class="tags"><span class="lang">EN</span><span>doktar.com</span><span>Feb 13, 2024</span></div></div>
+      <span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a></li>
+    <li class="item"><a href="https://www.doktar.com/resources/blog/social-return-on-investment-(sroi)-measuring-tangible-impact-with-doktar" target="_blank" rel="noopener">
+      <div><h3>Social Return on Investment (SROI): Measuring Tangible Impact with Doktar</h3>
+      <p>Covers how SROI works and how it captures the environmental, economic and social impact of Doktar’s programs.</p>
+      <div class="tags"><span class="lang">EN</span><span>doktar.com</span><span>Jan 29, 2024</span></div></div>
+      <span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a></li>
+  </ul>
+</section>
+
+<section id="tr-blog" aria-labelledby="h-tr">
+  <div class="sec-head">
+    <h2 id="h-tr">Turkish blog posts</h2>
+    <div class="count" aria-label="3 items">3</div>
+  </div>
+  <p class="sec-note">Articles written in Turkish for the Meditopia blog. English summaries are below each title.</p>
+  <ul class="list">
+    <li class="item"><a href="https://meditopia.com/tr/forwork/articles/yoga-pilates-studyo-buyume-rehberi" target="_blank" rel="noopener">
+      <div><h3>Yoga ve Pilates stüdyosu büyüme rehberi</h3>
+      <p>A growth guide for yoga and Pilates studios.</p>
+      <div class="tags"><span class="lang">TR</span><span>meditopia.com</span></div></div>
+      <span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a></li>
+    <li class="item"><a href="https://meditopia.com/tr/forwork/articles/istanbul-en-iyi-padel-kulupleri" target="_blank" rel="noopener">
+      <div><h3>İstanbul’un en iyi padel kulüpleri</h3>
+      <p>A guide to the best padel clubs in Istanbul.</p>
+      <div class="tags"><span class="lang">TR</span><span>meditopia.com</span></div></div>
+      <span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a></li>
+    <li class="item"><a href="https://meditopia.com/tr/forwork/articles/is-sonrasinda-rahatlamak-icin-saglikli-yollar" target="_blank" rel="noopener">
+      <div><h3>İş sonrasında rahatlamak için sağlıklı yollar</h3>
+      <p>Healthy ways to unwind after work.</p>
+      <div class="tags"><span class="lang">TR</span><span>meditopia.com</span></div></div>
+      <span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a></li>
+  </ul>
+</section>
+
+<section id="landing" aria-labelledby="h-lp">
+  <div class="sec-head">
+    <h2 id="h-lp">Landing pages</h2>
+    <div class="count" aria-label="2 items">2</div>
+  </div>
+  <p class="sec-note">Pages built for Meditopia WellnessPass, for companies and for studios.</p>
+  <ul class="list">
+    <li class="item"><a href="https://landings.meditopia.com/meditopia-wellnesspass" target="_blank" rel="noopener">
+      <div><h3>Meditopia WellnessPass</h3><div class="tags"><span>landings.meditopia.com</span></div></div>
+      <span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a></li>
+    <li class="item"><a href="https://landings.meditopia.com/wellnesspass-studio" target="_blank" rel="noopener">
+      <div><h3>WellnessPass Studio</h3><div class="tags"><span>landings.meditopia.com</span></div></div>
+      <span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a></li>
+  </ul>
+</section>
+
+</main>
+
+<footer>
+  <div class="foot">
+    <small>İlhan Çamiçi · Portfolio</small>
+  </div>
+</footer>
+
+<button class="theme" id="theme" type="button" aria-label="Switch between light and dark theme">Theme</button>
+<script>
+(function(){
+  var root=document.documentElement,btn=document.getElementById('theme');
+  btn.addEventListener('click',function(){
+    var dark=window.matchMedia('(prefers-color-scheme: dark)').matches;
+    var cur=root.getAttribute('data-theme')||(dark?'dark':'light');
+    root.setAttribute('data-theme',cur==='dark'?'light':'dark');
+  });
+})();
+</script>
+</body>
+</html>
